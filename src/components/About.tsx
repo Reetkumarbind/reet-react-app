@@ -7,27 +7,39 @@ const About = () => {
     {
       category: "Frontend",
       icon: <Globe className="w-6 h-6" />,
-      techs: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Vue.js"]
+      techs: ["React", "TypeScript", "Next.js", "Tailwind CSS", "kotlin","JavaScript"],
+      color: "text-brand-teal",
+      bgColor: "bg-brand-teal/10",
+      borderColor: "border-brand-teal/20"
     },
     {
       category: "Backend",
       icon: <Database className="w-6 h-6" />,
-      techs: ["Node.js", "Python", "Express", "MongoDB", "PostgreSQL"]
+      techs: ["Node.js", "Python", "Express", "MongoDB", "MySQL"],
+      color: "text-brand-emerald",
+      bgColor: "bg-brand-emerald/10",
+      borderColor: "border-brand-emerald/20"
     },
     {
       category: "Mobile",
       icon: <Smartphone className="w-6 h-6" />,
-      techs: ["React Native", "Flutter", "Expo", "iOS", "Android"]
+      techs: ["React Native", "Expo", "Android"],
+      color: "text-brand-purple",
+      bgColor: "bg-brand-purple/10",
+      borderColor: "border-brand-purple/20"
     },
     {
       category: "Tools & Others",
       icon: <Code className="w-6 h-6" />,
-      techs: ["Git", "Docker", "AWS", "Firebase", "GraphQL"]
+      techs: ["Android Studio", "Docker", "Kiro", "Firebase", "Visual Studio Code"],
+      color: "text-brand-orange",
+      bgColor: "bg-brand-orange/10",
+      borderColor: "border-brand-orange/20"
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-section-1">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -45,17 +57,17 @@ const About = () => {
           {/* Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {skills.map((skillGroup, index) => (
-              <Card key={skillGroup.category} className="bg-card-gradient shadow-card border-border/50 hover:shadow-elegant transition-all duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={skillGroup.category} className={`bg-card-gradient shadow-card border-border/50 hover:shadow-elegant transition-all duration-300 animate-fade-in-up ${skillGroup.borderColor} border-l-4`} style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                    <div className={`p-2 ${skillGroup.bgColor} rounded-lg ${skillGroup.color}`}>
                       {skillGroup.icon}
                     </div>
-                    <h3 className="font-semibold text-lg">{skillGroup.category}</h3>
+                    <h3 className={`font-semibold text-lg text-foreground ${skillGroup.color}`}>{skillGroup.category}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {skillGroup.techs.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                      <Badge key={tech} variant="secondary" className={`text-xs ${skillGroup.bgColor} ${skillGroup.color} border-0`}>
                         {tech}
                       </Badge>
                     ))}

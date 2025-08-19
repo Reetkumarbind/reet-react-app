@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,27 +13,51 @@ const Navigation = () => {
     { name: "Contact", href: "#contact" }
   ];
 
+  const handleNavClick = (href: string) => {
+    const element = document.getElementById(href.substring(1));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
+  const handleResumeDownload = () => {
+    // Create a sample resume download - replace with actual resume file
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // You'll need to add your actual resume file to the public folder
+    link.download = 'Reet_Kumar_Bind_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-lg border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="text-xl font-bold text-white">
+          <div className="text-4xl font-bold text-white">
             Reet Kumar Bind
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="text-white/90 hover:text-white transition-colors"
+                onClick={() => handleNavClick(item.href)}
+                className="text-white/90 hover:text-white transition-colors cursor-pointer"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
-            <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
+            <ThemeToggle />
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="bg-white/10 text-white border-white/20 hover:bg-white/20"
+              onClick={handleResumeDownload}
+            >
               Resume
             </Button>
           </div>
@@ -53,17 +78,25 @@ const Navigation = () => {
           <div className="md:hidden bg-white/10 backdrop-blur-lg border-t border-white/10">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="block px-4 py-2 text-white/90 hover:text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleNavClick(item.href)}
+                  className="block w-full text-left px-4 py-2 text-white/90 hover:text-white transition-colors"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
-              <div className="px-4 py-2">
-                <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20 w-full">
+              <div className="px-4 py-2 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/80 text-sm">Theme</span>
+                  <ThemeToggle />
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="bg-white/10 text-white border-white/20 hover:bg-white/20 w-full"
+                  onClick={handleResumeDownload}
+                >
                   Resume
                 </Button>
               </div>

@@ -10,37 +10,41 @@ const Projects = () => {
       description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
       techs: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/reetkumarbind/ecommerce-platform",
+      live: "https://ecommerce-demo.reetkumarbind.com",
+      accentColor: "project-accent-orange"
     },
     {
       title: "Task Management App",
       description: "A collaborative task management application with real-time updates, built using React and Firebase. Includes drag-and-drop functionality.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop",
       techs: ["React", "Firebase", "TypeScript", "Material-UI"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/reetkumarbind/task-manager",
+      live: "https://taskmanager.reetkumarbind.com",
+      accentColor: "project-accent-teal"
     },
     {
       title: "Weather Dashboard",
       description: "A responsive weather dashboard that provides detailed weather information with interactive charts and 7-day forecast.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=400&fit=crop",
       techs: ["Vue.js", "Chart.js", "OpenWeather API", "SCSS"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/reetkumarbind/weather-dashboard",
+      live: "https://weather.reetkumarbind.com",
+      accentColor: "project-accent-purple"
     },
     {
       title: "Social Media App",
       description: "A mobile-first social media application with photo sharing, real-time messaging, and user profiles.",
       image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&h=400&fit=crop",
       techs: ["React Native", "Expo", "Supabase", "TypeScript"],
-      github: "#",
-      live: "#"
+      github: "https://github.com/reetkumarbind/social-media-app",
+      live: "https://expo.dev/@reetkumarbind/social-app",
+      accentColor: "project-accent-pink"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-section-2">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -56,7 +60,7 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={project.title} className="bg-card shadow-card hover:shadow-elegant transition-all duration-300 animate-fade-in-up overflow-hidden group" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card key={project.title} className={`bg-card shadow-card hover:shadow-elegant transition-all duration-300 animate-fade-in-up overflow-hidden group ${project.accentColor} border-l-4`} style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
@@ -86,11 +90,20 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex gap-3 pt-2">
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 hover:bg-gradient-ocean hover:text-white hover:border-transparent transition-all duration-300"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
-                    <Button variant="default" size="sm" className="flex-1">
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-gradient-sunset hover:bg-gradient-fire transition-all duration-300 border-0"
+                      onClick={() => window.open(project.live, '_blank')}
+                    >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
                     </Button>
@@ -102,7 +115,12 @@ const Projects = () => {
 
           {/* View More */}
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="bg-background">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="bg-background"
+              onClick={() => window.open('https://github.com/reetkumarbind', '_blank')}
+            >
               <Github className="w-5 h-5 mr-2" />
               View All Projects on GitHub
             </Button>
