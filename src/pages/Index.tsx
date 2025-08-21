@@ -13,7 +13,7 @@ const Index = () => {
   usePortfolioShortcuts();
 
   return (
-    <div className="dark min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black">
+    <div className="dark min-h-screen">
       <ScrollProgress />
       <Navigation />
       <div id="home">

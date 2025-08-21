@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,9 +32,9 @@ All colors MUST be HSL.
     --accent-foreground: 0 0% 98%;
 
     /* Portfolio specific colors */
-    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --hero-gradient: linear-gradient(135deg, hsl(230 80% 55%), hsl(280 70% 65%));
     --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 96%));
-    --text-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --text-gradient: linear-gradient(135deg, hsl(230 80% 55%), hsl(280 70% 65%));
     --shadow-elegant: 0 10px 40px -10px hsl(221 83% 53% / 0.3);
     --shadow-card: 0 4px 20px -4px hsl(221 83% 53% / 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -120,9 +122,9 @@ All colors MUST be HSL.
     --destructive-foreground: 210 40% 98%;
 
     /* Portfolio specific colors for dark mode */
-    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --hero-gradient: linear-gradient(135deg, hsl(230 80% 55%), hsl(280 70% 65%));
     --card-gradient: linear-gradient(145deg, hsl(222.2 84% 4.9%), hsl(217.2 32.6% 17.5%));
-    --text-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --text-gradient: linear-gradient(135deg, hsl(230 80% 55%), hsl(280 70% 65%));
     --shadow-elegant: 0 10px 40px -10px hsl(221 83% 53% / 0.4);
     --shadow-card: 0 4px 20px -4px hsl(221 83% 53% / 0.2);
 

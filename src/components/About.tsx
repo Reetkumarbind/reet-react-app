@@ -57,7 +57,7 @@ const About = () => {
           {/* Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {skills.map((skillGroup, index) => (
-              <Card key={skillGroup.category} className={`bg-card-gradient shadow-card border-border/50 hover:shadow-elegant transition-all duration-300 animate-fade-in-up ${skillGroup.borderColor} border-l-4`} style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={skillGroup.category} className={`bg-card-gradient shadow-card border-border/50 hover:shadow-elegant hover:scale-[1.02] transition-all duration-300 animate-fade-in-up ${skillGroup.borderColor} border-l-4`} style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`p-2 ${skillGroup.bgColor} rounded-lg ${skillGroup.color}`}>
