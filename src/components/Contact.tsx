@@ -99,20 +99,11 @@ const Contact = () => {
                     action: () => window.open('tel:+919738443482'),
                     color: "text-brand-emerald",
                     bgColor: "bg-brand-emerald/10"
-                  },
-                  { 
-                    icon: <MapPin className="w-5 h-5" />, 
-                    label: "Location", 
-                    value: "Delhi, India",
-                    action: () => window.open('https://maps.google.com/?q=Delhi,India'),
-                    color: "text-brand-purple",
-                    bgColor: "bg-brand-purple/10"
                   }
                 ].map((contact, index) => (
                   <div 
                     key={contact.label} 
-                    className="flex items-center gap-4 animate-fade-in-up cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors" 
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className={`flex items-center gap-4 animate-fade-in-up cursor-pointer hover:bg-muted/50 p-2 rounded-lg transition-colors delay-[${index * 100}ms]`} 
                     onClick={contact.action}
                   >
                     <div className={`p-3 ${contact.bgColor} rounded-lg ${contact.color}`}>
@@ -124,6 +115,30 @@ const Contact = () => {
                     </div>
                   </div>
                 ))}
+
+                {/* Embedded Google Map for Location */}
+                <div className="animate-fade-in-up p-0 delay-[250ms]">
+                  <div className="mt-2 rounded-lg overflow-hidden border border-border/20 bg-card-gradient">
+                    <div className="p-3 flex items-center gap-3">
+                      <div className="p-2 bg-brand-purple/10 rounded-lg text-brand-purple">
+                        <MapPin className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground">Location</p>
+                        <p className="text-sm text-muted-foreground">Nirman Vihar, Delhi, India</p>
+                      </div>
+                    </div>
+                    <div className="w-full h-48">
+                      <iframe
+                        title="Nirman Vihar, Delhi - Google Map"
+                        src="https://maps.google.com/maps?q=Nirman+Vihar,Delhi,India&z=15&output=embed"
+                        className="w-full h-full border-0"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Social Links */}
@@ -180,7 +195,7 @@ const Contact = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        placeholder="John" 
+                        placeholder="Reet" 
                         className="bg-background" 
                         required
                       />
@@ -191,7 +206,7 @@ const Contact = () => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        placeholder="Doe" 
+                        placeholder="Kumar" 
                         className="bg-background" 
                       />
                     </div>
@@ -204,7 +219,7 @@ const Contact = () => {
                       type="email" 
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="john@example.com" 
+                      placeholder="reetkumarbind@gmail.com" 
                       className="bg-background" 
                       required
                     />
