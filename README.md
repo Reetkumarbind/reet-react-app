@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to your Reet Kumar Bind Portfolio project
 
 ## Project info
 
